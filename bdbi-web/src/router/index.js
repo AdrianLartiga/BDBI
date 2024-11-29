@@ -1,11 +1,10 @@
-// router/index.js
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router'; // Cambiar a createWebHashHistory
 import PageLogin from '../components/PageLogin.vue';
 import PageHome from '../components/PageHome.vue';
 
 const routes = [
   {
-    path: '/login',
+    path: '/',
     name: 'Login',
     component: PageLogin,
   },
@@ -17,7 +16,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(), // Cambiar a createWebHashHistory
   routes,
 });
 

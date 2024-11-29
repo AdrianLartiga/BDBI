@@ -131,7 +131,7 @@ export default {
       }
     },
     cerrarSesion() {
-      this.$router.push('/login'); // Redirigir a la página de inicio de sesión
+      this.$router.push('/'); // Redirigir a la página de inicio de sesión
     },
   },
 };
