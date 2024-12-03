@@ -26,14 +26,18 @@
         ref="userMenu"
       ></p-menu>
     </div>
-
     <!-- Sidebar -->
     <p-sidebar v-model:visible="showSidebar" :dismissable="true" position="left" style="width: 250px;">
-      <h3>Menú</h3>
+      <h3>Datamart</h3>
       <ul>
         <li @click="mostrarReporte('pesos')">Dashboard de Pesos</li>
         <li @click="mostrarReporte('viajes')">Dashboard de Viajes</li>
         <li @click="mostrarReporte('general')">Dashboard General</li>
+      </ul>
+      <h3>Web Scraping</h3>
+      <ul>
+        <li @click="mostrarReporte('webScraping1')">Dashboard Web Scraping 1</li>
+        <li @click="mostrarReporte('webScraping2')">Dashboard Web Scraping 2</li>
       </ul>
     </p-sidebar>
 
