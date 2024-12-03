@@ -1,10 +1,10 @@
 // main.js
 import Aura from '@primevue/themes/aura';
 import 'primeicons/primeicons.css';
-
 import { createApp } from 'vue';
 import PrimeVue from 'primevue/config';
-import ConfirmationService from 'primevue/confirmationservice'; // Importa el servicio de confirmación
+import ToastService from "primevue/toastservice"; // Importa el servicio de Toast
+import Toast from "primevue/toast"; // Importa el componente Toast
 import router from './router';
 import App from './App.vue';
 
@@ -20,8 +20,8 @@ app.use(PrimeVue, {
     }
 });
 
-// Registrar el servicio de confirmación
-app.use(ConfirmationService);
+app.use(ToastService); // Agrega el servicio de Toast
+app.component("p-toast", Toast); // Registra globalmente el componente Toast
 
 // Usar el enrutador
 app.use(router);

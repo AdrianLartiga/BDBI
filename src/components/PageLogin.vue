@@ -9,55 +9,56 @@
       </div>
     </div>
 
-    <!-- Componente ConfirmDialog -->
-    <p-confirm-dialog />
+    <!-- Componente Toast -->
+    <p-toast />
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import InputText from 'primevue/inputtext';
-import Password from 'primevue/password';
-import Button from 'primevue/button';
-import ConfirmDialog from 'primevue/confirmdialog'; // Importa el componente ConfirmDialog
-import { useConfirm } from 'primevue/useconfirm'; // Importa el hook para usar confirmDialog
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import InputText from "primevue/inputtext";
+import Password from "primevue/password";
+import Button from "primevue/button";
+import Toast from "primevue/toast"; // Importación del componente Toast
+import { useToast } from "primevue/usetoast"; // Importación del hook useToast
 
 export default {
-  name: 'PageLogin',
+  name: "PageLogin",
   components: {
-    'p-inputtext': InputText,
-    'p-password': Password,
-    'p-button': Button,
-    'p-confirm-dialog': ConfirmDialog, // Registra ConfirmDialog
+    "p-inputtext": InputText,
+    "p-password": Password,
+    "p-button": Button,
+    "p-toast": Toast, // Registro del componente Toast
   },
   setup() {
-    const username = ref('');
-    const password = ref('');
+    const username = ref("");
+    const password = ref("");
     const router = useRouter();
-    const confirm = useConfirm(); // Obtén la función confirmDialog usando el hook
+    const toast = useToast();
 
     const login = () => {
-      if (username.value === 'Admin_Adrian' && password.value === 'Zupra_0523') {
-        confirm.require({
-          message: '¡Bienvenido, Admin_Adrian!',
-          header: 'Inicio de Sesión Exitoso',
-          icon: 'pi pi-check',
-          accept: () => {
-            router.push('/home'); // Redirige al usuario a PageHome
-          },
+      if (username.value === "Admin_Adrian" && password.value === "Zupra_0523") {
+        toast.add({
+          severity: "success",
+          summary: "Inicio de Sesión Exitoso",
+          detail: "¡Bienvenido, Admin_Adrian!",
+          life: 3000,
         });
-      } else if (username.value !== 'Admin_Adrian') {
-        confirm.require({
-          message: 'El usuario es incorrecto.',
-          header: 'Error de Inicio de Sesión',
-          icon: 'pi pi-exclamation-triangle',
+        router.push("/home"); // Redirige al usuario a la página principal
+      } else if (username.value !== "Admin_Adrian") {
+        toast.add({
+          severity: "error",
+          summary: "Error de Inicio de Sesión",
+          detail: "El usuario es incorrecto.",
+          life: 3000,
         });
-      } else if (password.value !== 'Zupra_0523') {
-        confirm.require({
-          message: 'La contraseña es incorrecta.',
-          header: 'Error de Inicio de Sesión',
-          icon: 'pi pi-exclamation-triangle',
+      } else if (password.value !== "Zupra_0523") {
+        toast.add({
+          severity: "error",
+          summary: "Error de Inicio de Sesión",
+          detail: "La contraseña es incorrecta.",
+          life: 3000,
         });
       }
     };
@@ -66,6 +67,8 @@ export default {
   },
 };
 </script>
+
+
 
 <style scoped>
 /* Fondo de la página */
