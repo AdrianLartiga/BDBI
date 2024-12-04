@@ -26,18 +26,22 @@
         ref="userMenu"
       ></p-menu>
     </div>
+
     <!-- Sidebar -->
-    <p-sidebar v-model:visible="showSidebar" :dismissable="true" position="left" style="width: 250px;">
+    <p-sidebar v-model:visible="showSidebar" :dismissable="true" position="left" style="width: 300px;">
       <h3>Datamart</h3>
       <ul>
         <li @click="mostrarReporte('pesos')">Dashboard de Pesos</li>
         <li @click="mostrarReporte('viajes')">Dashboard de Viajes</li>
         <li @click="mostrarReporte('general')">Dashboard General</li>
       </ul>
+      <h3>Comparativo</h3>
+      <ul>
+        <li @click="mostrarReporte('comparativo')">Comparativo de WebScrapping y DataMart</li>
+      </ul>
       <h3>Web Scraping</h3>
       <ul>
-        <li @click="mostrarReporte('webScraping1')">Dashboard Web Scraping 1</li>
-        <li @click="mostrarReporte('webScraping2')">Dashboard Web Scraping 2</li>
+        <li @click="mostrarReporte('webScraping1')">Dashboard Web Scraping</li>
       </ul>
     </p-sidebar>
 
@@ -101,11 +105,16 @@ export default {
         pesos: 'Dashboard de Pesos',
         viajes: 'Dashboard de Viajes',
         general: 'Dashboard General de Power BI',
+        comparativo: 'Comparativo de WebScrapping y DataMart',
+        webScraping1: 'Dashboard Web Scraping',
+        webScraping2: 'Dashboard Web Scraping 2',
       },
       descripcionesDashboards: {
         pesos: 'Aquí podrá visualizar datos relacionados con los pesos de los envíos.',
         viajes: 'Este dashboard muestra información sobre los viajes realizados.',
         general: 'Dashboard principal que contiene información general de la empresa.',
+        comparativo: 'Dashboard que compara datos obtenidos por WebScrapping y DataMart.',
+        webScraping1: 'Datos obtenidos del análisis de Web Scraping.',
       },
       urlsDashboards: {
         pesos:
@@ -114,32 +123,28 @@ export default {
           'https://app.powerbi.com/reportEmbed?reportId=17232f49-956a-4551-9177-90e7809f6db9&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
         general:
           'https://app.powerbi.com/reportEmbed?reportId=9623d741-8274-44d4-8416-ba171dd073e2&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
+        comparativo:
+          'https://app.powerbi.com/reportEmbed?reportId=6c4d31a3-bc97-4227-8d39-0294e40f30df&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
+        webScraping: 
+          'https://app.powerbi.com/reportEmbed?reportId=ffb9963e-e066-4618-893b-1f696117d454&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572', 
       },
     };
   },
   methods: {
     toggleUserMenu(event) {
-      // Abrir el menú emergente en la posición del botón
       this.$refs.userMenu.toggle(event);
     },
     mostrarReporte(opcion) {
-      this.opcionSeleccionada = opcion; // Cambiar el dashboard según la opción seleccionada
-      this.showSidebar = false; // Cerrar el sidebar después de seleccionar
-    },
-    activarModoOscuro() {
-      const body = document.body;
-      if (this.darkMode) {
-        body.classList.add('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-      }
+      this.opcionSeleccionada = opcion;
+      this.showSidebar = false;
     },
     cerrarSesion() {
-      this.$router.push('/'); // Redirigir a la página de inicio de sesión
+      this.$router.push('/');
     },
   },
 };
 </script>
+
 
 <style scoped>
 /* Barra Superior */
