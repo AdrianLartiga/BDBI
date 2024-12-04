@@ -125,7 +125,7 @@ export default {
           'https://app.powerbi.com/reportEmbed?reportId=9623d741-8274-44d4-8416-ba171dd073e2&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
         comparativo:
           'https://app.powerbi.com/reportEmbed?reportId=6c4d31a3-bc97-4227-8d39-0294e40f30df&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
-        webScraping: 
+        webScraping1: 
           'https://app.powerbi.com/reportEmbed?reportId=ffb9963e-e066-4618-893b-1f696117d454&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572', 
       },
     };
