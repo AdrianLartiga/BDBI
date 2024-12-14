@@ -9,7 +9,7 @@
           @click="showSidebar = true"
           aria-label="Open Sidebar"
         ></p-button>
-        <h2 class="title">Dashboard</h2>
+        <h2 class="title">Informes</h2>
       </div>
       <p-button
         ref="userMenuButton"
@@ -31,9 +31,9 @@
     <p-sidebar v-model:visible="showSidebar" :dismissable="true" position="left" style="width: 300px;">
       <h3>Datamart</h3>
       <ul>
-        <li @click="mostrarReporte('pesos')">Dashboard de Pesos</li>
-        <li @click="mostrarReporte('viajes')">Dashboard de Viajes</li>
-        <li @click="mostrarReporte('general')">Dashboard General</li>
+        <li @click="mostrarReporte('pesos')">Informe de Pesos</li>
+        <li @click="mostrarReporte('viajes')">Informe de Viajes</li>
+        <li @click="mostrarReporte('general')">Informe General</li>
       </ul>
       <h3>Comparativo</h3>
       <ul>
@@ -41,7 +41,13 @@
       </ul>
       <h3>Web Scraping</h3>
       <ul>
-        <li @click="mostrarReporte('webScraping1')">Dashboard Web Scraping</li>
+        <li @click="mostrarReporte('webScraping1')">Informe Web Scraping</li>
+      </ul>
+      <h3>Dashboards Regionales</h3>
+      <ul>
+        <li @click="mostrarReporte('mundial')">Informe Mundial</li>
+        <li @click="mostrarReporte('arequipa')">Informe de Arequipa</li>
+        <li @click="mostrarReporte('peru')">Informe de Perú</li>
       </ul>
     </p-sidebar>
 
@@ -102,12 +108,14 @@ export default {
         },
       ],
       titulosDashboards: {
-        pesos: 'Dashboard de Pesos',
-        viajes: 'Dashboard de Viajes',
-        general: 'Dashboard General de Power BI',
+        pesos: 'Informe de Pesos',
+        viajes: 'Informe de Viajes',
+        general: 'Informe General de Power BI',
         comparativo: 'Comparativo de WebScrapping y DataMart',
-        webScraping1: 'Dashboard Web Scraping',
-        webScraping2: 'Dashboard Web Scraping 2',
+        webScraping1: 'Informe Web Scraping',
+        mundial: 'Informe Mundial',
+        arequipa: 'Informe Arequipa',
+        peru: 'Informe Perú',
       },
       descripcionesDashboards: {
         pesos: 'Aquí podrá visualizar datos relacionados con los pesos de los envíos.',
@@ -115,6 +123,9 @@ export default {
         general: 'Dashboard principal que contiene información general de la empresa.',
         comparativo: 'Dashboard que compara datos obtenidos por WebScrapping y DataMart.',
         webScraping1: 'Datos obtenidos del análisis de Web Scraping.',
+        mundial: 'Dashboard que muestra datos a nivel mundial.',
+        arequipa: 'Dashboard enfocado en el análisis de datos del departamento de Arequipa.',
+        peru: 'Dashboard con información relevante a nivel nacional en Perú.',
       },
       urlsDashboards: {
         pesos:
@@ -125,8 +136,14 @@ export default {
           'https://app.powerbi.com/reportEmbed?reportId=9623d741-8274-44d4-8416-ba171dd073e2&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
         comparativo:
           'https://app.powerbi.com/reportEmbed?reportId=6c4d31a3-bc97-4227-8d39-0294e40f30df&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
-        webScraping1: 
-          'https://app.powerbi.com/reportEmbed?reportId=ffb9963e-e066-4618-893b-1f696117d454&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572', 
+        webScraping1:
+          'https://app.powerbi.com/reportEmbed?reportId=ffb9963e-e066-4618-893b-1f696117d454&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
+        mundial:
+          'https://app.powerbi.com/reportEmbed?reportId=1e590736-8edb-437b-b9b8-f085ff7ce648&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
+        arequipa:
+          'https://app.powerbi.com/reportEmbed?reportId=2f5980b2-f293-405b-923d-f3e7adc261a6&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
+        peru:
+          'https://app.powerbi.com/reportEmbed?reportId=24e733c4-0645-446d-b30c-72f09270ac60&autoAuth=true&ctid=604ddfd9-1ced-44ae-86c6-fcb0307d6572',
       },
     };
   },
@@ -144,6 +161,7 @@ export default {
   },
 };
 </script>
+
 
 
 <style scoped>
